@@ -22,14 +22,35 @@ const config: PlaywrightTestConfig = {
     timezoneId: 'Asia/Tokyo',
     headless: true,
     viewport: { width: 1280, height: 720 },
-    ignoreHTTPSErrors: true,
-    storageState: 'state.json',
     //screenshot: 'only-on-failure',
     //video: 'on-first-retry',
     // screenshot/video を onにしておくと
     // htmlテスト結果で見れるようになる
+    trace: 'on',
     screenshot: 'on',
     video: 'on',
   },
+
+  ////////////////////////////////////////
+  // https://playwright.dev/docs/api/class-testproject
+  ////////////////////////////////////////
+  projects: [
+    {
+      name: 'dev',
+      use: {
+        baseURL: 'http://vmdev01.prosper2.net',
+        storageState: 'dev.state.json',
+        ignoreHTTPSErrors: true,
+      },
+    },
+    {
+      name: 'prod',
+      use: {
+        baseURL: 'http://vmdev01.prosper2.net',
+        storageState: 'prod.state.json',
+        ignoreHTTPSErrors: false,
+      }
+    },
+  ],
 };
 export default config;

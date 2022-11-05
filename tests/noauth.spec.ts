@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('認証不要サイトでの基本テスト', async ({page}) => {
-  await page.goto('http://vmdev01.prosper2.net/');
+  await page.goto("/");
 
   ////////////////////////
   // expect - Jest expect library

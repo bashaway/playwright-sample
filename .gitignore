@@ -1,5 +1,9 @@
+# temp file
+*.swp
+*.swo
+
 # credential
-state.json
+*.state.json
 
 # test result
 results/
