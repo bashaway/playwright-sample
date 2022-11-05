@@ -13,6 +13,13 @@ npx playwright install
 
 # playwright
 
+## clone repo
+
+```
+git clone https://github.com/bashaway/playwright-sample.git
+cd playwright-sample/e2e
+```
+
 ## Run test
 
 ```
