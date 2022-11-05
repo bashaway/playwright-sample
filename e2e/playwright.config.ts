@@ -5,7 +5,8 @@ const config: PlaywrightTestConfig = {
   ////////////////////////////////////////
   // https://playwright.dev/docs/api/class-testconfig
   ////////////////////////////////////////
-  testDir: "./tests",
+  //testDir: "./tests",
+  testDir: "./",
   outputDir: "./results/media",
   // https://playwright.dev/docs/test-reporters
   reporter: [
