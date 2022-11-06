@@ -21,8 +21,8 @@ const config: PlaywrightTestConfig = {
     timezoneId: 'Asia/Tokyo',
     headless: true,
     viewport: { width: 1280, height: 720 },
-    ignoreHTTPSErrors: true,
-    trace: 'off',
+    ignoreHTTPSErrors: false,
+    trace: 'on',
     screenshot: 'on',
     video: 'on',
   },
@@ -32,15 +32,15 @@ const config: PlaywrightTestConfig = {
   ////////////////////////////////////////
   projects: [
     {
-      name: '[development] ui test',
+      name: '[production] ui test',
       testDir: "./ui",
       use: {
         baseURL: 'http://vmdev01.prosper2.net',
-        storageState: 'dev.state.json',
+        storageState: 'prod.state.json',
       },
     },
     {
-      name: '[development] api test',
+      name: '[production] api test',
       testDir: "./api",
       use: {
         baseURL: 'https://api.github.com',

@@ -20,29 +20,38 @@ git clone https://github.com/bashaway/playwright-sample.git
 cd playwright-sample/e2e
 ```
 
-## Run test
+## environment settings
 
 ```
+# set environment valiables
+$env:GITHUB_TOKEN = "ghe_xxxxxxxxxx"
+
 # save session state
 npx playwright open https://github.com --save-storage=dev.state.json
 npx playwright open https://github.com --save-storage=prod.state.json
-
-# run test
-npx playwright test --project=dev
-npx playwright test --project=prod
 ```
+
+
+## Run test
+
+```
+# run test ( development site )
+npx playwright test
+
+# run test ( production site )
+npx playwright test -c playwright_prod.config.ts
+```
+
+# TIPS
 
 ## Test Code Generator
 
 ```
-# no authentication site
 npx playwright codegen https://wikipedia.org
-
-# OpenID Connect authentication site
 npx playwright codegen https://github.com --load-storage=dev.state.json
 npx playwright codegen https://github.com --load-storage=prod.state.json
 ```
 
-## TIPS
+## ja
 
 ファイル形式がUTF8ならテストケース名に日本語を使える。

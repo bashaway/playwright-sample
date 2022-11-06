@@ -58,15 +58,22 @@ test('認証不要サイトでの基本テスト', async ({page}) => {
   ////////////////////////
   await page.screenshot({ path: './results/media/screenshot_openresty.png', fullPage: true });
   //await page.locator('.header').screenshot({ path: './results/media/screenshot_header.png' });
+});
 
 
-  ////////////////////////
-  // 日本語サイトに対するシナリオ
-  ////////////////////////
+test('日本語サイトに対するシナリオテスト', async ({page}) => {
   await page.goto('https://www.wikipedia.org/');
   await page.getByLabel('Search Wikipedia').click();
   await page.getByLabel('Search Wikipedia').fill('wiki');
   await page.getByRole('button', { name: 'Search' }).click();
   await expect(page).toHaveURL('https://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A3%E3%82%AD');
   await page.screenshot({ path: './results/media/screenshot_wiki.png', fullPage: true });
+});
+
+
+test('GitHubにログインした状態のセッション情報を利用したテスト', async ({ page }) => {
+  await page.goto('https://github.com/');
+  await page.getByRole('button', { name: 'View profile and more' }).click();
+  await page.getByRole('menuitem', { name: 'Your profile' }).click();
+  await expect(page).toHaveURL('https://github.com/bashaway');
 });
